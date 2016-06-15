@@ -5,7 +5,9 @@
 
 #Server part 
 ##Javaweb
+This is the javaweb part. I use the SSH framework to build this part
 
 ##Nodejs
-
+This is the nodejs part.I use express and sockeioserver to build this part
 ##Python
+
