@@ -15,6 +15,7 @@ import android.view.View;
 import android.widget.Button;
 
 import cn.comm.R;
+import cn.comm.service.SocketIOService;
 import cn.comm.service.VolleyService;
 
 //test the lifetime of Service
@@ -25,6 +26,7 @@ public class TestServiceActivity extends Activity implements View.OnClickListene
     private Button btnUnbind;
     private Button btnJlink;
     private VolleyService myservice;
+    private SocketIOService socketservice;
     private ServiceConnection mc = new ServiceConnection() {
         @Override
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
@@ -35,6 +37,19 @@ public class TestServiceActivity extends Activity implements View.OnClickListene
         @Override
         public void onServiceDisconnected(ComponentName componentName) {
             Log.e("Activity","servicedisconnected");
+        }
+    };
+
+    private ServiceConnection ms = new ServiceConnection() {
+        @Override
+        public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
+            socketservice = ((SocketIOService.MyBinder)iBinder).getService();
+            Log.e("Activity","socketserviceconnected");
+        }
+
+        @Override
+        public void onServiceDisconnected(ComponentName componentName) {
+            Log.e("Activity","socketservicedisconnected");
         }
     };
     @Override
@@ -81,7 +96,7 @@ public class TestServiceActivity extends Activity implements View.OnClickListene
     public void onClick(View view) {
         int id = view.getId();
         Intent in = new Intent(this, VolleyService.class);
-
+        Intent in2 = new Intent(this,SocketIOService.class);
         if(id==R.id.bu1)
         {
             Log.e("Activity", "startService");
@@ -99,16 +114,19 @@ public class TestServiceActivity extends Activity implements View.OnClickListene
         {
             Log.e("Activity", "binder button");
             bindService(in,mc, Context.BIND_AUTO_CREATE);
+            bindService(in2,ms,Context.BIND_AUTO_CREATE);
         }
         if(id == R.id.bu4)
         {
             Log.e("Activity", "unbinder button");
             unbindService(mc);
+            unbindService(ms);
         }
         if(id == R.id.bu5)
         {
             Log.e("Activity","Run Server request");
-            myservice.volleyPost();// use the postmethod to send data to the server
+           // myservice.volleyPost();// use the postmethod to send data to the server
+            socketservice.socketioPost();// send message
         }
 
     }

@@ -23,5 +23,5 @@ dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'com.android.support:appcompat-v7:24.0.0-beta1'
     compile files('libs/volley.jar')
-    compile files('libs/socketio.jar')
+    compile files('libs/socket.io-client-0.1.2.jar')
 }

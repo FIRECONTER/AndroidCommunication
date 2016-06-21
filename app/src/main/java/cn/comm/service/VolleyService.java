@@ -89,6 +89,7 @@ public class VolleyService extends Service {
     {
         String url = "http://42.96.149.197:3000";
 
+
         StringRequest req = new StringRequest(Request.Method.POST,url,new Response.Listener<String>(){
             @Override
             public void onResponse(String s) {
