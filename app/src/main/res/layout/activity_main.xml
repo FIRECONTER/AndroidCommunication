@@ -25,4 +25,10 @@
         android:text="communicate with volley service"
         android:textColor="@android:color/holo_red_dark"
         android:background="@android:color/holo_green_dark"/>
+    <Button  android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/button3"
+        android:text="send and get volley data"
+        android:textColor="@android:color/holo_red_dark"
+        android:background="@android:color/holo_green_dark"/>
 </LinearLayout>
