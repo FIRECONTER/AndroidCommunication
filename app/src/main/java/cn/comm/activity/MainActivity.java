@@ -8,6 +8,9 @@ import android.view.MenuItem;
 
 import cn.comm.R;
 
+/**
+ * this activity is used to test the layout
+ */
 public class MainActivity extends Activity {
 
     @Override

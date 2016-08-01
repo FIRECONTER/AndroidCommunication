@@ -2,7 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="cn.comm" >
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -11,7 +14,6 @@
         <activity
             android:name=".activity.MainActivity"
             android:label="@string/title_activity_main" >
-
         </activity>
 
         <service
@@ -33,6 +35,23 @@
         <activity
             android:name=".activity.TestServiceActivity"
             android:label="@string/title_activity_test_service" >
+        </activity>
+        <activity
+            android:name=".activity.LayoutActivity"
+            android:label="@string/title_activity_layout" >
+        </activity>
+        <activity
+            android:name=".activity.MyFragmentActivity"
+            android:label="@string/title_activity_my_fragment" >
+
+        </activity>
+        <activity
+            android:name=".activity.MywidgetActivity"
+            android:label="@string/title_activity_mywidget" >
+        </activity>
+        <activity
+            android:name=".activity.BlueToothActivity"
+            android:label="@string/title_activity_blue_tooth" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

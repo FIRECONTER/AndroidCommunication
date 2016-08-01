@@ -15,6 +15,7 @@ import android.view.View;
 import android.widget.Button;
 
 import cn.comm.R;
+import cn.comm.service.HttpClientService;
 import cn.comm.service.SocketIOService;
 import cn.comm.service.VolleyService;
 
@@ -27,6 +28,7 @@ public class TestServiceActivity extends Activity implements View.OnClickListene
     private Button btnJlink;
     private VolleyService myservice;
     private SocketIOService socketservice;
+    private HttpClientService myhttpservice;// httpclient service
     private ServiceConnection mc = new ServiceConnection() {
         @Override
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
@@ -52,6 +54,7 @@ public class TestServiceActivity extends Activity implements View.OnClickListene
             Log.e("Activity","socketservicedisconnected");
         }
     };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
